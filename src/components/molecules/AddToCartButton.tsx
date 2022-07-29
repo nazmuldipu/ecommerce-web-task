@@ -5,8 +5,6 @@ interface AddToCartProps {
     onClick: (params: any) => any;
 }
 
-
-
 function AddToCart({ price, onClick }: AddToCartProps) {
 
 

@@ -5,9 +5,10 @@ import { AddToCart } from "../molecules";
 interface ProductCardProps {
     product: Product;
     onActionClick: () => any;
+    onFavClick: () => any;
 }
 
-function ProductCard({ product, onActionClick }: ProductCardProps) {
+function ProductCard({ product, onActionClick, onFavClick }: ProductCardProps) {
 
     return (
         <div className="product_card flex">
@@ -19,7 +20,9 @@ function ProductCard({ product, onActionClick }: ProductCardProps) {
                         </div> :
                         <div></div>
                 }
-                <img src={product.isFavorite ? '/heart-fill.svg' : '/heart-line.svg'} className="logo" alt="Favorite" />
+                <div onClick={onFavClick} className="cursor-pointer">
+                    <img src={product.isFavorite ? '/heart-fill.svg' : '/heart-line.svg'} className="logo" alt="Favorite" />
+                </div>
             </div>
             <div className="product_card--picture grid">
                 <img src={product.image} className="product_card--image" alt={product.name} />

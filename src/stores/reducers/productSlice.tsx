@@ -12,9 +12,6 @@ const dynamicallyLoadedItems: Product[] = [
     { id: 8, category: "Electironics", name: "Samsung Galaxy Watch 3", size: "Medium", image: "/SamsungGalaxyWatch3.png", price: 2150.00, oldPrice: 2700, rating: 4, isFavorite: false, onSale: true },
 ];
 
-const initItems: Product[] = [];
-
-
 const slice = createSlice({
     name: 'product',
     initialState: {
@@ -22,9 +19,16 @@ const slice = createSlice({
         total: dynamicallyLoadedItems.length
     },
     reducers: {
+        toogleFav: (product, action) => {
+            const index = product.items.findIndex(c => c.id === action.payload.id);
+            if (index >= 0) {
+                product.items.splice(index, 1, { ...action.payload, isFavorite: !action.payload.isFavorite })
+            }
+        }
     }
 })
 export const {
+    toogleFav
 } = slice.actions;
 
 export default slice.reducer;

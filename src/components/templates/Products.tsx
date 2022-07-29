@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addProduct, removeProduct } from "../../stores/reducers/cartSlice";
+import { toogleFav } from "../../stores/reducers/productSlice";
 
 import { Product, ProductState } from "../../types";
 import { ProductCard } from "../organisms";
@@ -12,6 +13,10 @@ function Products() {
         dispatch(addProduct(product));
     }
 
+    const handleFavClick = (product: Product) => {
+        dispatch(toogleFav(product))
+    }
+
     return (
         <section className="prduct-list grid p-4">
             {
@@ -19,7 +24,7 @@ function Products() {
                     products.map(
                         (item, index) =>
                         (
-                            <ProductCard key={`product-${index}`} product={item} onActionClick={() => addToCart(Object.assign({}, item))} />
+                            <ProductCard key={`product-${index}`} product={item} onActionClick={() => addToCart(Object.assign({}, item))} onFavClick={() => handleFavClick(item)} />
                         )
                     ) :
                     <span className="ShoppingCart__notification--isEmpty">
