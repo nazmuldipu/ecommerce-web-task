@@ -9,7 +9,7 @@ function App() {
   const showCart = useSelector((state: ProductState) => state.entities.cart.show);
 
   return (
-    <div className="App max-w-full p-0 mx-auto my-0 text-center ">
+    <div className="App max-w-full p-0 mx-auto my-0 text-center" data-testid="app">
       <Navbar />
       <Products />
       {showCart && <Cart />}

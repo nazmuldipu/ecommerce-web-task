@@ -6,14 +6,14 @@ interface CartActionButtonProps {
 
 function CartActionButton({ quantity, onMinusClick, onPlusClick }: CartActionButtonProps) {
     return (
-        <div className="cart-actions">
-            <button className="cart-actions-btn" onClick={onMinusClick}>
+        <div className="cart-actions" data-testid="cart-action-btn">
+            <button className="cart-actions-btn" onClick={onMinusClick} data-testid="cart-action-btn-minus">
                 <svg width="16" height="4" viewBox="0 0 16 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 2H16" stroke="#161D25" strokeWidth="2.5" />
                 </svg>
             </button>
-            <span className="cart-actions--quantity">{quantity}</span>
-            <button className="cart-actions-btn" onClick={onPlusClick}>
+            <span className="cart-actions--quantity" data-testid="cart-action-btn-quantity">{quantity}</span>
+            <button className="cart-actions-btn" onClick={onPlusClick} data-testid="cart-action-btn-plus">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" clipRule="evenodd" d="M8.38462 8.38462V1H9.61539V8.38462H17V9.61539H9.61539V17H8.38462V9.61539H1V8.38462H8.38462Z" fill="#161D25" stroke="#161D25" />
                 </svg>

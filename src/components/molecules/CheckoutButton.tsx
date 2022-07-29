@@ -4,7 +4,7 @@ interface CheckoutButtonProps {
 
 function CheckoutButton({ onClick }: CheckoutButtonProps) {
     return (
-        <button className="check-out" onClick={onClick}>Checkout</button>
+        <button className="check-out" onClick={onClick} data-testid="check-out-btn">Checkout</button>
     );
 }
 
